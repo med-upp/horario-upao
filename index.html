@@ -9,101 +9,282 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
-        :root {
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --primary: #1e3a8a;
-            --secondary: #64748b;
-            --border: #e2e8f0;
-        }
+:root{
+--bg:#eef2f7;
+--card:#ffffff;
+--primary:#2563eb;
+--primary-soft:#dbeafe;
+--text:#0f172a;
+--text-soft:#64748b;
+--border:#e5e7eb;
+--shadow:0 10px 25px rgba(0,0,0,0.08);
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            margin: 0;
-            padding: 20px;
-        }
+*{
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { color: var(--primary); margin: 0; }
-        .header p { color: var(--secondary); font-size: 14px; }
+body{
+margin:0;
+background:var(--bg);
+padding:30px;
+color:var(--text);
+}
 
-        .layout {
-            display: flex;
-            gap: 25px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+/* HEADER */
 
-        /* Sidebar de Control */
-        .sidebar {
-            width: 320px;
-            background: var(--white);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            height: fit-content;
-        }
+.header{
+text-align:center;
+margin-bottom:35px;
+}
 
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 15px;
-        }
+.header h1{
+font-size:28px;
+margin:0;
+font-weight:600;
+color:var(--text);
+}
 
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background-color: #fcfcfc;
-            font-size: 14px;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
+.header p{
+margin-top:6px;
+font-size:14px;
+color:var(--text-soft);
+}
 
-        /* Contenedor Dinámico de Cursos */
-        .cursos-container {
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-            min-height: 100px;
-        }
+/* LAYOUT */
 
-        .ciclo-content { display: none; } /* Oculto por defecto */
+.layout{
+display:flex;
+gap:30px;
+max-width:1400px;
+margin:auto;
+align-items:flex-start;
+}
 
-        /* Tabla de Horario */
-        .main-canvas {
-            flex-grow: 1;
-            background: var(--white);
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            overflow-x: auto;
-        }
+/* SIDEBAR */
 
-        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-        th, td { border: 1px solid var(--border); height: 42px; text-align: center; font-size: 11px; }
-        th { background: #f1f5f9; color: #475569; font-weight: 600; }
-        .time-col { width: 95px; font-weight: 600; background: #f8fafc; }
+.sidebar{
+width:320px;
+background:var(--card);
+border-radius:18px;
+box-shadow:var(--shadow);
+padding:24px;
+height:auto;
+max-height:120px;
+overflow:hidden;
+transition:all .35s ease;
+}
 
-        .btn-export {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+/* cuando se selecciona ciclo */
+.sidebar.activo{
+max-height:calc(100vh - 60px);
+overflow-y:auto;
+}
 
-        /* Estados de celdas */
-        .cell-data { color: white; padding: 4px; border-radius: 2px; }
-        .cell-conflict { background-color: #ef4444 !important; }
+/* TITULOS */
+
+.section-title{
+font-size:13px;
+font-weight:600;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:var(--text-soft);
+margin-bottom:12px;
+}
+
+/* SELECT */
+
+select{
+width:100%;
+height:42px;
+padding:10px 12px;
+border-radius:10px;
+border:1px solid var(--border);
+background:#fafafa;
+font-size:13px;
+transition:all .2s;
+cursor:pointer;
+}
+
+select:hover{
+border-color:#cbd5e1;
+}
+
+select:focus{
+outline:none;
+border-color:var(--primary);
+box-shadow:0 0 0 3px var(--primary-soft);
+}
+
+/* CURSOS */
+
+.cursos-container{
+margin-top:15px;
+}
+
+.curso-box{
+background:#fbfdff;
+border:1px solid var(--border);
+border-radius:14px;
+padding:18px;
+margin-bottom:16px;
+transition:.2s;
+}
+
+.curso-box:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 14px rgba(0,0,0,0.06);
+}
+
+.curso-header{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+font-size:14px;
+font-weight:600;
+color:var(--text);
+}
+
+.curso-header input[type=color]{
+border:none;
+width:28px;
+height:28px;
+cursor:pointer;
+}
+
+/* SELECT GROUP */
+
+.select-group{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+/* TABLA */
+
+.main-canvas{
+flex:1;
+background:var(--card);
+border-radius:18px;
+box-shadow:var(--shadow);
+padding:25px;
+overflow-x:auto;
+}
+
+/* TABLA */
+
+table{
+width:100%;
+border-collapse:collapse;
+table-layout:fixed;
+font-size:11px;
+}
+
+th{
+background:#e2e8f0;
+color:#0f172a;
+font-weight:700;
+height:45px;
+border:1px solid #cbd5e1;
+font-size:13px;
+}
+
+td{
+border:1px solid #e2e8f0;
+height:42px;
+background:#ffffff;
+transition:background .15s;
+}
+
+td:hover{
+background:#f1f5f9;
+}
+
+.time-col{
+width:110px;
+background:#f1f5f9;
+color:#1e293b;
+font-weight:600;
+font-size:12px;
+border-right:3px solid #cbd5e1;
+}
+
+th:first-child{
+background:#5d7191;
+color:white;
+font-weight:700;
+border-right:3px solid #cbd5e1;
+}
+
+/* CELDAS CURSOS */
+
+.cell-data{
+color:white;
+font-weight:500;
+font-size:10px;
+line-height:1.2;
+border-radius:4px;
+padding:3px;
+}
+
+/* CONFLICTO */
+
+.cell-conflict{
+background:#ef4444!important;
+color:white;
+font-weight:600;
+}
+
+/* BOTON */
+
+.btn-export{
+margin-top:20px;
+width:100%;
+height:44px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+font-weight:600;
+font-size:14px;
+cursor:pointer;
+transition:.2s;
+}
+
+.btn-export:hover{
+transform:translateY(-1px);
+box-shadow:0 6px 16px rgba(37,99,235,0.4);
+}
+
+/* SCROLLBAR BONITO */
+
+.sidebar::-webkit-scrollbar{
+width:8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+background:#cbd5e1;
+border-radius:10px;
+}
+
+.sidebar::-webkit-scrollbar-track{
+background:transparent;
+}
+
+.cursos-container{
+opacity:0;
+transform:translateY(-10px);
+transition:all .25s ease;
+pointer-events:none;
+}
+
+.sidebar.activo .cursos-container{
+opacity:1;
+transform:translateY(0);
+pointer-events:auto;
+}
     </style>
 </head>
 <body>
@@ -124,7 +305,7 @@
                 <option value="6">6° Ciclo</option>
             </select>
 
-            <div class="section-title">Asignaturas</div>
+<div class="section-title" id="tituloAsignaturas" style="display:none;">Asignaturas</div>
             <div id="cursosContainer" class="cursos-container">
                 <p id="placeholderText" style="color: var(--secondary); font-size: 13px;">
                     Selecciona un ciclo para ver los cursos disponibles.
@@ -348,8 +529,17 @@
         BQ: '#14b8a6', CI: '#8b5cf6', AL: '#10b981' 
     };
 
-    function cambiarColor(curso, color) { colores[curso] = color; }
+function cambiarColor(curso, color){
 
+    colores[curso] = color;
+
+    document.querySelectorAll("#cuerpoTabla td").forEach(celda=>{
+        if(celda.innerHTML.includes(curso)){
+            celda.style.backgroundColor = color;
+        }
+    });
+
+}
     async function cargarDatos(nombre) {
         const res = await fetch(`horarios/${nombre}.json`);
         if (!res.ok) throw new Error("Archivo no encontrado");
@@ -384,7 +574,7 @@
         const select = document.getElementById(idSelect);
         if(!select) return;
         
-        select.innerHTML = '<option value="">Teoría</option>';
+        select.innerHTML = '<option value="">T</option>';
         
         // Recorremos las llaves (1, 2, 3...)
         Object.keys(curso.T).forEach(k => {
@@ -459,25 +649,41 @@
     }
 
     async function mostrarCiclo(ciclo) {
-        document.querySelectorAll('.ciclo-content').forEach(el => el.style.display = 'none');
-        const placeholder = document.getElementById('placeholderText');
-        if(ciclo) {
-            placeholder.style.display = 'none';
-            document.getElementById(`ciclo-${ciclo}`).style.display = 'block';
-            if(ciclo == "2") {
-                // Ahora cada uno se carga por su cuenta
-                await llenarSelectorSimple("comunicacion_ii", "com2");
-                await llenarSelectorTeorias("biologia_molecular", "bmT");
-                await llenarSelectorTeorias("locomotor", "alT");
-                await llenarSelectorTeorias("sistema_excretor", "exT");
-                await llenarSelectorTeorias("bioquimica_medica", "bqT");
-                await llenarSelectorSimple("casos_integradores_1", "ci1");
 
-                // Los demás cargarlos solo cuando tengas sus JSON listos
-            }
-        } else { placeholder.style.display = 'block'; }
-        limpiarTodo();
+    document.querySelectorAll('.ciclo-content')
+    .forEach(el => el.style.display = 'none');
+
+    const sidebar = document.querySelector(".sidebar");
+    const placeholder = document.getElementById('placeholderText');
+    const tituloAsignaturas = document.getElementById("tituloAsignaturas");
+
+    if(ciclo){
+
+        sidebar.classList.add("activo");
+
+        placeholder.style.display = 'none';
+        document.getElementById(`ciclo-${ciclo}`).style.display = 'block';
+
+        if(ciclo == "2"){
+
+            await llenarSelectorSimple("comunicacion_ii","com2");
+            await llenarSelectorTeorias("biologia_molecular","bmT");
+            await llenarSelectorTeorias("locomotor","alT");
+            await llenarSelectorTeorias("sistema_excretor","exT");
+            await llenarSelectorTeorias("bioquimica_medica","bqT");
+            await llenarSelectorSimple("casos_integradores_1","ci1");
+
+        }
+
+    }else{
+
+        sidebar.classList.remove("activo");
+        placeholder.style.display = 'block';
+
     }
+
+    limpiarTodo();
+}
 
     function pintar(dia, bloque, texto, color) {
         const celda = document.getElementById("tablaHorario").rows[bloque].cells[dia];
