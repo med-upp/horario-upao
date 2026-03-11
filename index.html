@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario UPAO 2026-10 | Gestión por Ciclos</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --primary: #1e3a8a;
+            --secondary: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: var(--primary); margin: 0; }
+        .header p { color: var(--secondary); font-size: 14px; }
+
+        .layout {
+            display: flex;
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar de Control */
+        .sidebar {
+            width: 320px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: #fcfcfc;
+            font-size: 14px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        /* Contenedor Dinámico de Cursos */
+        .cursos-container {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            min-height: 100px;
+        }
+
+        .ciclo-content { display: none; } /* Oculto por defecto */
+
+        /* Tabla de Horario */
+        .main-canvas {
+            flex-grow: 1;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        th, td { border: 1px solid var(--border); height: 42px; text-align: center; font-size: 11px; }
+        th { background: #f1f5f9; color: #475569; font-weight: 600; }
+        .time-col { width: 95px; font-weight: 600; background: #f8fafc; }
+
+        .btn-export {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Estados de celdas */
+        .cell-data { color: white; padding: 4px; border-radius: 2px; }
+        .cell-conflict { background-color: #ef4444 !important; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Crea tu Horario UPAO 2026-10</h1>
+        </div>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="section-title">Selecciona tu ciclo</div>
+            <select id="selectorCiclo" onchange="mostrarCiclo(this.value)">
+                <option value="">Ciclo</option>
+                <option value="2">2° Ciclo</option>
+                <option value="3">3° Ciclo</option>
+                <option value="4">4° Ciclo</option>
+                <option value="5">5° Ciclo</option>
+                <option value="6">6° Ciclo</option>
+            </select>
+
+            <div class="section-title">Asignaturas</div>
+            <div id="cursosContainer" class="cursos-container">
+                <p id="placeholderText" style="color: var(--secondary); font-size: 13px;">
+                    Selecciona un ciclo para ver los cursos disponibles.
+                </p>
+
+ <div id="ciclo-2" class="ciclo-content">
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#6366f1" onchange="cambiarColor('COM', this.value)">
+            <span>Comunicación II</span>
+        </div>
+        <select id="com2" onchange="actualizarSimple('comunicacion_ii', 'com2', 'COM')">
+            <option value="">T</option>
+        </select>
+    </div>
+
+   <div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#ef4444" onchange="cambiarColor('BM', this.value)">
+        <span>Biología Molecular</span>
+    </div>
+    <div class="select-group">
+        <select id="bmT" onchange="gestionarDependientes('biologia_molecular', 'bm', ['P'])">
+            <option value="">T</option>
+        </select>
+        <select id="bmP" onchange="repintarBM()">
+            <option value="">P</option>
+        </select>
+    </div>
+</div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#f59e0b" onchange="cambiarColor('EX', this.value)">
+            <span>Sistema Excretor</span>
+        </div>
+        <div class="select-group">
+            <select id="exT" onchange="gestionarDependientes('sistema_excretor', 'ex', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="exL" onchange="repintarEX()"><option value="">L</option></select>
+            <select id="exA" onchange="repintarEX()"><option value="">A</option></select>
+        </div>
+    </div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#14b8a6" onchange="cambiarColor('BQ', this.value)">
+            <span>Bioquímica Médica</span>
+        </div>
+        <div class="select-group">
+            <select id="bqT" onchange="gestionarDependientes('bioquimica_medica', 'bq', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="bqL" onchange="repintarBQ()"><option value="">L</option></select>
+            <select id="bqA" onchange="repintarBQ()"><option value="">A</option></select>
+        </div>
+    </div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#8b5cf6" onchange="cambiarColor('CI', this.value)">
+            <span>Casos Integradores I</span>
+        </div>
+        <select id="ci1" onchange="actualizarSimple('casos_integradores_1', 'ci1', 'CI')">
+            <option value="">T</option>
+        </select>
+    </div>
+
+    <div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#10b981" onchange="cambiarColor('AL', this.value)">
+        <span>Aparato Locomotor</span>
+    </div>
+    <div class="select-group">
+        <select id="alT" onchange="gestionarDependientes('locomotor', 'al', ['L', 'A'])">
+            <option value="">T</option>
+        </select>
+        <select id="alL" onchange="repintarAL()"><option value="">L</option></select>
+        <select id="alA" onchange="repintarAL()"><option value="">A</option></select>
+    </div>
+</div>
+
+<div id="ciclo-3" class="ciclo-content">
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#f97316"><span>Casos Integradores II</span></div>
+        <select id="ci2NRC"><option value="">NRC</option></select>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#64748b"><span>Filosofía y Pensamiento Crítico</span></div>
+        <select id="filoNRC"><option value="">NRC</option></select>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#f472b6"><span>Sistema Reproductor</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#34d399"><span>Sistema Endocrino</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#fb7185"><span>Sistema Nervioso</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#22c55e"><span>Medicina Social</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#06b6d4"><span>Recursos Digitales</span></div>
+        <select id="rdNRC"><option value="">NRC</option></select>
+    </div>
+</div>
+<div id="ciclo-4" class="ciclo-content">
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#dc2626"><span>Sangre y S. Inmune</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#f59e0b"><span>Casos Integradores III</span></div>
+        <select id="ci3NRC"><option value="">NRC</option></select>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#06b6d4"><span>Sistema Respiratorio</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#22c55e"><span>Sistema Digestivo</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#ef4444"><span>S. Cardiovascular</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#6366f1"><span>Genética Médica</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+</div>
+<div id="ciclo-5" class="ciclo-content">
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#991b1b"><span>Patología Gral y Esp.</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#16a34a"><span>Microbiología</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#0891b2"><span>Epidemiología</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#ef4444"><span>Farmacología</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#f59e0b"><span>Casos Integradores IV</span></div>
+        <select id="ci4NRC"><option value="">NRC</option></select>
+    </div>
+</div>
+<div id="ciclo-6" class="ciclo-content">
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#6b8cff"><span>Semiología Médica</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Hosp</option></select><select><option>Externo</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#a78bfa"><span>Médico Paciente I</span></div>
+        <div class="select-group"><select><option>Actividad</option></select><select><option>Institucional</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#4ade80"><span>Diagnóstico Imágenes</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#fbbf24"><span>Informática Médica</span></div>
+        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+    </div>
+    <div class="curso-control">
+        <div class="curso-header"><input type="color" value="#38bdf8"><span>Fisiopatología</span></div>
+        <select id="fisioNRC"><option value="">NRC</option></select>
+    </div>
+</div>
+
+            <button class="btn-export" onclick="descargarPNG()">Exportar Horario</button>
+        </aside>
+
+        <main class="main-canvas" id="capture">
+            <table id="tablaHorario">
+                <thead>
+                    <tr>
+                        <th class="time-col">Bloque</th>
+                        <th>Lunes</th><th>Martes</th><th>Miércoles</th>
+                        <th>Jueves</th><th>Viernes</th><th>Sábado</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla">
+                    </tbody>
+            </table>
+        </main>
+    </div>
+
+<script>
+    const bloques = [
+        "7:00 - 7:50", "7:55 - 8:45", "8:50 - 9:40", "9:45 - 10:35",
+        "10:40 - 11:30", "11:35 - 12:25", "12:30 - 1:20", "1:25 - 2:15",
+        "2:20 - 3:10", "3:15 - 4:05", "4:10 - 5:00", "5:05 - 5:55",
+        "6:00 - 6:50", "6:55 - 7:45", "7:50 - 8:40", "8:45 - 9:35"
+    ];
+
+    const cuerpo = document.getElementById('cuerpoTabla');
+    bloques.forEach((hora) => {
+        let fila = `<tr><td class="time-col">${hora}</td>`;
+        for(let i=1; i<=6; i++) fila += `<td></td>`;
+        fila += `</tr>`;
+        cuerpo.innerHTML += fila;
+    });
+
+    let colores = { 
+        COM: '#6366f1', BM: '#ef4444', EX: '#f59e0b', 
+        BQ: '#14b8a6', CI: '#8b5cf6', AL: '#10b981' 
+    };
+
+    function cambiarColor(curso, color) { colores[curso] = color; }
+
+    async function cargarDatos(nombre) {
+        const res = await fetch(`horarios/${nombre}.json`);
+        if (!res.ok) throw new Error("Archivo no encontrado");
+        return await res.json();
+    }
+
+    async function llenarSelectorSimple(archivo, idSelect, rutaDatos = "NRCs") {
+    try {
+        const curso = await cargarDatos(archivo);
+        const select = document.getElementById(idSelect);
+        if(!select) return;
+            select.innerHTML = '<option value="">Sección</option>';
+        const lista = curso[rutaDatos];
+        
+        Object.keys(lista).forEach(nrc => {
+            const info = lista[nrc];
+            const dias = ["", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+            const diaNombre = dias[info.bloques[0].dia];
+            
+            // PRIORIDAD: Mostrar la Sección (M01, M02...)
+            const etiqueta = `${info.seccion || 'NRC ' + nrc} (${diaNombre})`;
+            
+            // El valor interno sigue siendo el NRC para que el pintado no falle
+            select.add(new Option(etiqueta, nrc));
+        });
+    } catch (e) { console.warn("Error en simple:", e); }
+}
+
+    async function llenarSelectorTeorias(archivo, idSelect) {
+    try {
+        const curso = await cargarDatos(archivo);
+        const select = document.getElementById(idSelect);
+        if(!select) return;
+        
+        select.innerHTML = '<option value="">Teoría</option>';
+        
+        // Recorremos las llaves (1, 2, 3...)
+        Object.keys(curso.T).forEach(k => {
+            const t = curso.T[k];
+            // Usamos la sección que TÚ pusiste en el JSON (T1, T2, etc.)
+            const etiqueta = t.seccion || "T" + k; 
+            select.add(new Option(`${t.nrc} ${etiqueta}`, k));
+        });
+    } catch (e) { console.warn("Error cargando teorías:", e); }
+}
+
+    async function gestionarDependientes(archivo, prefijo, tipos) {
+        const curso = await cargarDatos(archivo);
+        const valorT = document.getElementById(prefijo + "T").value;
+        tipos.forEach(tipo => {
+            const selectDep = document.getElementById(prefijo + tipo);
+            if(!selectDep) return;
+            selectDep.innerHTML = `<option value="">${tipo}</option>`;
+            if (valorT && curso[tipo] && curso[tipo][valorT]) {
+                curso[tipo][valorT].forEach((item, idx) => {
+                    selectDep.add(new Option(`${item.nrc} ${item.seccion || tipo + valorT}`, idx));
+                });
+            }
+        });
+        window["repintar" + prefijo.toUpperCase()](); 
+    }
+
+    function pintarCurso(datos, tipo, opcion, color) {
+        if(!datos[tipo] || !datos[tipo][opcion]) return;
+        const info = datos[tipo][opcion];
+        const texto = `${datos.sigla} ${info.seccion || ''}<br>NRC ${info.nrc}`;
+        info.bloques.forEach(b => {
+            for(let i = b.inicio; i <= b.fin; i++) pintar(b.dia, i, texto, color);
+        });
+    }
+
+    function pintarDesdeArray(datos, tipo, liga, index, color) {
+        if(!datos[tipo] || !datos[tipo][liga] || !datos[tipo][liga][index]) return;
+        const info = datos[tipo][liga][index];
+        const texto = `${datos.sigla} ${info.seccion || ''}<br>NRC ${info.nrc}`;
+        info.bloques.forEach(b => {
+            for(let i = b.inicio; i <= b.fin; i++) pintar(b.dia, i, texto, color);
+        });
+    }
+
+    async function actualizarSimple(archivo, idSelect, siglaKey) {
+        limpiarPorSigla(siglaKey);
+        const nrc = document.getElementById(idSelect).value;
+        if (!nrc) return;
+        const datos = await cargarDatos(archivo);
+        pintarCurso(datos, "NRCs", nrc, colores[siglaKey]);
+    }
+
+    async function repintarBM() { await repintarComplejo("biologia_molecular", "bm", "BM"); }
+    async function repintarAL() { await repintarComplejo("locomotor", "al", "AL"); }
+    async function repintarEX() { await repintarComplejo("sistema_excretor", "ex", "EX"); }
+    async function repintarBQ() { await repintarComplejo("bioquimica_medica", "bq", "BQ"); }
+    async function repintarCI() {await actualizarSimple('casos_integradores_1', 'ci1', 'CI'); }
+
+    async function repintarComplejo(archivo, pref, sigla) {
+        limpiarPorSigla(sigla);
+        const curso = await cargarDatos(archivo);
+        const t = document.getElementById(pref + "T").value;
+        const lIdx = document.getElementById(pref + "L")?.value;
+        const aIdx = document.getElementById(pref + "A")?.value;
+        const pIdx = document.getElementById(pref + "P")?.value;
+        
+        if(t) pintarCurso(curso, "T", t, colores[sigla]);
+        if(lIdx !== "" && lIdx !== undefined) pintarDesdeArray(curso, "L", t, lIdx, colores[sigla]);
+        if(aIdx !== "" && aIdx !== undefined) pintarDesdeArray(curso, "A", t, aIdx, colores[sigla]);
+        if(pIdx !== "" && pIdx !== undefined) pintarDesdeArray(curso, "P", t, pIdx, colores[sigla]);
+    }
+
+    async function mostrarCiclo(ciclo) {
+        document.querySelectorAll('.ciclo-content').forEach(el => el.style.display = 'none');
+        const placeholder = document.getElementById('placeholderText');
+        if(ciclo) {
+            placeholder.style.display = 'none';
+            document.getElementById(`ciclo-${ciclo}`).style.display = 'block';
+            if(ciclo == "2") {
+                // Ahora cada uno se carga por su cuenta
+                await llenarSelectorSimple("comunicacion_ii", "com2");
+                await llenarSelectorTeorias("biologia_molecular", "bmT");
+                await llenarSelectorTeorias("locomotor", "alT");
+                await llenarSelectorTeorias("sistema_excretor", "exT");
+                await llenarSelectorTeorias("bioquimica_medica", "bqT");
+                await llenarSelectorSimple("casos_integradores_1", "ci1");
+
+                // Los demás cargarlos solo cuando tengas sus JSON listos
+            }
+        } else { placeholder.style.display = 'block'; }
+        limpiarTodo();
+    }
+
+    function pintar(dia, bloque, texto, color) {
+        const celda = document.getElementById("tablaHorario").rows[bloque].cells[dia];
+        if (celda.innerHTML !== "") {
+            celda.innerHTML += "<br>⚠️<br>" + texto;
+            celda.classList.add("cell-conflict");
+        } else {
+            celda.innerHTML = texto;
+            celda.style.backgroundColor = color;
+            celda.classList.add("cell-data");
+        }
+    }
+
+    function limpiarPorSigla(sigla) {
+        document.querySelectorAll("#cuerpoTabla td").forEach(c => {
+            if(c.innerHTML.includes(sigla)) {
+                c.innerHTML = ""; c.style.backgroundColor = "";
+                c.classList.remove("cell-data", "cell-conflict");
+            }
+        });
+    }
+
+    function limpiarTodo() {
+        document.querySelectorAll("#cuerpoTabla td:not(.time-col)").forEach(c => {
+            c.innerHTML = ""; c.style.backgroundColor = "";
+            c.classList.remove("cell-data", "cell-conflict");
+        });
+    }
+
+    function descargarPNG() {
+        html2canvas(document.getElementById("capture")).then(canvas => {
+            const link = document.createElement("a");
+            link.download = "horario_upao.png";
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+</script>
+</body>
+</html>
