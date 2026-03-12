@@ -389,34 +389,99 @@ pointer-events:auto;
     </div>
 </div>
 
-<div id="ciclo-3" class="ciclo-content">
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#f97316"><span>Casos Integradores II</span></div>
-        <select id="ci2NRC"><option value="">NRC</option></select>
+</div>
+
+       <div id="ciclo-3" class="ciclo-content">
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#f97316" onchange="cambiarColor('CI2', this.value)">
+            <span>Casos Integradores II</span>
+        </div>
+        <select id="ci2NRC" onchange="repintarCI2()">
+            <option value="">Sección</option>
+        </select>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#64748b"><span>Filosofía y Pensamiento Crítico</span></div>
-        <select id="filoNRC"><option value="">NRC</option></select>
+
+    <div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#64748b" onchange="cambiarColor('FILO', this.value)">
+        <span>Filosofía</span>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#f472b6"><span>Sistema Reproductor</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    <div class="select-group">
+        <select id="filoT" onchange="gestionarDependientes('filosofia', 'filo', ['P'])">
+            <option value="">T</option>
+        </select>
+        <select id="filoP" onchange="repintarFILO()">
+            <option value="">P</option>
+        </select>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#34d399"><span>Sistema Endocrino</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+</div>
+
+<div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#f472b6" onchange="cambiarColor('RE', this.value)">
+        <span>Sistema Reproductor</span>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#fb7185"><span>Sistema Nervioso</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+    <div class="select-group">
+        <select id="reT" onchange="gestionarDependientes('sistema_reproductor', 're', ['L', 'A'])">
+            <option value="">T</option>
+        </select>
+        <select id="reL" onchange="repintarRE()"><option value="">L</option></select>
+        <select id="reA" onchange="repintarRE()"><option value="">A</option></select>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#22c55e"><span>Medicina Social</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+</div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#34d399" onchange="cambiarColor('EN', this.value)">
+            <span>Sistema Endocrino</span>
+        </div>
+        <div class="select-group">
+            <select id="enT" onchange="gestionarDependientes('sistema_endocrino', 'en', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="enL" onchange="repintarEN()"><option value="">L</option></select>
+            <select id="enA" onchange="repintarEN()"><option value="">A</option></select>
+        </div>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#06b6d4"><span>Recursos Digitales</span></div>
-        <select id="rdNRC"><option value="">NRC</option></select>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#fb7185" onchange="cambiarColor('NE', this.value)">
+            <span>Sistema Nervioso</span>
+        </div>
+        <div class="select-group">
+            <select id="neT" onchange="gestionarDependientes('sistema_nervioso', 'ne', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="neL" onchange="repintarNE()"><option value="">L</option></select>
+            <select id="neA" onchange="repintarNE()"><option value="">A</option></select>
+        </div>
+    </div>
+
+    <div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#22c55e" onchange="cambiarColor('MS', this.value)">
+        <span>Medicina Social</span>
+    </div>
+    <div class="select-group">
+        <select id="msT" onchange="gestionarDependientes('medicina_social', 'ms', ['P'])">
+            <option value="">T</option>
+        </select>
+        <select id="msP" onchange="repintarMS()">
+            <option value="">P</option>
+        </select>
+    </div>
+</div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#06b6d4" onchange="cambiarColor('RD', this.value)">
+            <span>Recursos Digitales</span>
+        </div>
+        <select id="rdNRC" onchange="repintarRD()">
+            <option value="">Sección</option>
+        </select>
     </div>
 </div>
 <div id="ciclo-4" class="ciclo-content">
@@ -526,8 +591,15 @@ pointer-events:auto;
 
     let colores = { 
         COM: '#6366f1', BM: '#ef4444', EX: '#f59e0b', 
-        BQ: '#14b8a6', CI: '#8b5cf6', AL: '#10b981' 
-    };
+        BQ: '#14b8a6', CI: '#8b5cf6', AL: '#10b981' ,
+ CI2:'#f97316',
+FILO:'#64748b',
+RE:'#f472b6',
+EN:'#34d399',
+NE:'#fb7185',
+MS:'#22c55e',
+RD:'#06b6d4'
+};
 
 function cambiarColor(curso, color){
 
@@ -605,7 +677,7 @@ function cambiarColor(curso, color){
     function pintarCurso(datos, tipo, opcion, color) {
         if(!datos[tipo] || !datos[tipo][opcion]) return;
         const info = datos[tipo][opcion];
-        const texto = `${datos.sigla} ${info.seccion || ''}<br>NRC ${info.nrc}`;
+        const texto = `${datos.sigla.replace("Casos Integradores","CASOS")} ${info.seccion || ''}<br>NRC ${info.nrc}`;        
         info.bloques.forEach(b => {
             for(let i = b.inicio; i <= b.fin; i++) pintar(b.dia, i, texto, color);
         });
@@ -614,7 +686,7 @@ function cambiarColor(curso, color){
     function pintarDesdeArray(datos, tipo, liga, index, color) {
         if(!datos[tipo] || !datos[tipo][liga] || !datos[tipo][liga][index]) return;
         const info = datos[tipo][liga][index];
-        const texto = `${datos.sigla} ${info.seccion || ''}<br>NRC ${info.nrc}`;
+        const texto = `${datos.sigla.replace("Casos Integradores","CASOS")} ${info.seccion || ''}<br>NRC ${info.nrc}`;      
         info.bloques.forEach(b => {
             for(let i = b.inicio; i <= b.fin; i++) pintar(b.dia, i, texto, color);
         });
@@ -632,7 +704,17 @@ function cambiarColor(curso, color){
     async function repintarAL() { await repintarComplejo("locomotor", "al", "AL"); }
     async function repintarEX() { await repintarComplejo("sistema_excretor", "ex", "EX"); }
     async function repintarBQ() { await repintarComplejo("bioquimica_medica", "bq", "BQ"); }
-    async function repintarCI() {await actualizarSimple('casos_integradores_1', 'ci1', 'CI'); }
+    async function repintarEX() { await repintarComplejo("sistema_excretor", "ex", "EX"); }
+    async function repintarBQ() { await repintarComplejo("bioquimica_medica", "bq", "BQ"); }
+    async function repintarCOM() { await actualizarSimple('comunicacion_ii', 'com2', 'COM'); }
+    async function repintarCI() { await actualizarSimple('casos_integradores_1', 'ci1', 'CI'); }
+    async function repintarRE() { await repintarComplejo("sistema_reproductor", "re", "RE"); }
+    async function repintarEN() { await repintarComplejo("sistema_endocrino", "en", "EN"); }
+    async function repintarNE() { await repintarComplejo("sistema_nervioso", "ne", "NE"); }
+    async function repintarMS() { await repintarComplejo("medicina_social", "ms", "MS"); }
+    async function repintarCI2() { await actualizarSimple('casos_integradores_2', 'ci2NRC', 'CI2') ; }
+    async function repintarFILO() { await repintarComplejo('filosofia', 'filo', 'FILO'); }
+    async function repintarRD() { await actualizarSimple('recursos_digitales', 'rdNRC', 'RD'); }
 
     async function repintarComplejo(archivo, pref, sigla) {
         limpiarPorSigla(sigla);
@@ -674,6 +756,16 @@ function cambiarColor(curso, color){
             await llenarSelectorSimple("casos_integradores_1","ci1");
 
         }
+
+            if(ciclo == "3") {
+            await llenarSelectorSimple("casos_integradores_2", "ci2NRC", "NRCs");
+            await llenarSelectorTeorias("filosofia", "filoT");
+            await llenarSelectorSimple("recursos_digitales", "rdNRC", "NRCs");
+            await llenarSelectorTeorias("sistema_reproductor", "reT");
+            await llenarSelectorTeorias("sistema_endocrino", "enT");
+            await llenarSelectorTeorias("sistema_nervioso", "neT");
+            await llenarSelectorTeorias("medicina_social", "msT");
+}
 
     }else{
 
