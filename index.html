@@ -165,12 +165,13 @@ gap:10px;
 /* TABLA */
 
 .main-canvas{
-flex:1;
-background:var(--card);
-border-radius:18px;
-box-shadow:var(--shadow);
-padding:25px;
-overflow-x:auto;
+  flex:1;
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:25px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* TABLA */
@@ -285,6 +286,202 @@ opacity:1;
 transform:translateY(0);
 pointer-events:auto;
 }
+
+/* =========================
+   RESPONSIVE CELULAR
+========================= */
+@media (max-width: 768px) {
+  body {
+    padding: 14px;
+  }
+
+  .header {
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .layout {
+    flex-direction: column;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .sidebar.activo {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .main-canvas {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .curso-box {
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .curso-header {
+    font-size: 13px;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .curso-header span {
+    line-height: 1.25;
+  }
+
+  .curso-header input[type=color] {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    padding: 0;
+  }
+
+  .section-title {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  select {
+    height: 40px;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .select-group {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .btn-export {
+    height: 42px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  table {
+    min-width: 760px; /* importante para scroll horizontal */
+    font-size: 10px;
+  }
+
+  th {
+    height: 40px;
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  td {
+    height: 38px;
+    padding: 2px;
+  }
+
+  .time-col {
+    width: 90px;
+    min-width: 90px;
+    font-size: 11px;
+  }
+
+  .cell-data {
+    font-size: 9px;
+    line-height: 1.15;
+    padding: 2px;
+  }
+}
+
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 19px;
+  }
+
+  .sidebar {
+    padding: 14px;
+  }
+
+  .curso-box {
+    padding: 12px;
+  }
+
+  .curso-header {
+    align-items: flex-start;
+  }
+
+  .curso-header span {
+    font-size: 12px;
+  }
+
+  .select-group {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* si hay 3 selects, el 3ro baja bonito */
+  .select-group select:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  select {
+    font-size: 12px;
+    height: 38px;
+  }
+
+  .btn-export {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+  th {
+    font-size: 11px;
+  }
+
+  .time-col {
+    width: 82px;
+    min-width: 82px;
+    font-size: 10px;
+  }
+
+  .cell-data {
+    font-size: 8px;
+  }
+}
+
+.ciclo-content{
+  display:none;
+}
+
+.header h1{
+  font-size: clamp(20px, 4vw, 28px);
+  margin:0;
+  font-weight:600;
+  color:var(--text);
+}
+
     </style>
 </head>
 <body>
@@ -484,75 +681,249 @@ pointer-events:auto;
         </select>
     </div>
 </div>
-<div id="ciclo-4" class="ciclo-content">
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#dc2626"><span>Sangre y S. Inmune</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+
+    <div id="ciclo-4" class="ciclo-content">
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#dc2626" onchange="cambiarColor('SSI', this.value)">
+            <span>Sangre y Sistema Inmune</span>
+        </div>
+        <div class="select-group">
+            <select id="ssiT" onchange="gestionarDependientes('sangre_sistema_inmune', 'ssi', ['P'])">
+                <option value="">T</option>
+            </select>
+            <select id="ssiP" onchange="repintarSSI()">
+                <option value="">P</option>
+            </select>
+        </div>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#f59e0b"><span>Casos Integradores III</span></div>
-        <select id="ci3NRC"><option value="">NRC</option></select>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#f59e0b" onchange="cambiarColor('CI3', this.value)">
+            <span>Casos Integradores III</span>
+        </div>
+        <select id="ci3NRC" onchange="repintarCI3()">
+            <option value="">Sección</option>
+        </select>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#06b6d4"><span>Sistema Respiratorio</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#06b6d4" onchange="cambiarColor('SR', this.value)">
+            <span>Sistema Respiratorio</span>
+        </div>
+        <div class="select-group">
+            <select id="srT" onchange="gestionarDependientes('sistema_respiratorio', 'sr', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="srL" onchange="repintarSR()">
+                <option value="">L</option>
+            </select>
+            <select id="srA" onchange="repintarSR()">
+                <option value="">A</option>
+            </select>
+        </div>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#22c55e"><span>Sistema Digestivo</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#22c55e" onchange="cambiarColor('SD', this.value)">
+            <span>Sistema Digestivo</span>
+        </div>
+        <div class="select-group">
+            <select id="sdT" onchange="gestionarDependientes('sistema_digestivo', 'sd', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="sdL" onchange="repintarSD()">
+                <option value="">L</option>
+            </select>
+            <select id="sdA" onchange="repintarSD()">
+                <option value="">A</option>
+            </select>
+        </div>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#ef4444"><span>S. Cardiovascular</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Lab</option></select><select><option>Act</option></select></div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#ef4444" onchange="cambiarColor('SCV', this.value)">
+            <span>Sistema Cardiovascular</span>
+        </div>
+        <div class="select-group">
+            <select id="scvT" onchange="gestionarDependientes('sistema_cardiovascular', 'scv', ['L', 'A'])">
+                <option value="">T</option>
+            </select>
+            <select id="scvL" onchange="repintarSCV()">
+                <option value="">L</option>
+            </select>
+            <select id="scvA" onchange="repintarSCV()">
+                <option value="">A</option>
+            </select>
+        </div>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#6366f1"><span>Genética Médica</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+
+    <div class="curso-box">
+        <div class="curso-header">
+            <input type="color" value="#6366f1" onchange="cambiarColor('GM', this.value)">
+            <span>Genética Médica</span>
+        </div>
+        <div class="select-group">
+            <select id="gmT" onchange="gestionarDependientes('genetica_medica', 'gm', ['P'])">
+                <option value="">T</option>
+            </select>
+            <select id="gmP" onchange="repintarGM()">
+                <option value="">P</option>
+            </select>
+        </div>
     </div>
 </div>
+
 <div id="ciclo-5" class="ciclo-content">
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#991b1b"><span>Patología Gral y Esp.</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#991b1b" onchange="cambiarColor('PAT', this.value)">
+<span>Patología General y Especial</span>
+</div>
+<div class="select-group">
+<select id="patT" onchange="gestionarDependientes('patologia_general_especial','pat',['P'])">
+<option value="">T</option>
+</select>
+<select id="patP" onchange="repintarPAT()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#16a34a" onchange="cambiarColor('MIC', this.value)">
+<span>Microbiología y Parasitología</span>
+</div>
+<div class="select-group">
+<select id="micT" onchange="gestionarDependientes('microbiologia_parasitologia','mic',['P'])">
+<option value="">T</option>
+</select>
+<select id="micP" onchange="repintarMIC()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+    <div class="curso-header">
+        <input type="color" value="#0891b2" onchange="cambiarColor('EPI', this.value)">
+        <span>Epidemiología y Medicina Preventiva</span>
     </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#16a34a"><span>Microbiología</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#0891b2"><span>Epidemiología</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#ef4444"><span>Farmacología</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#f59e0b"><span>Casos Integradores IV</span></div>
-        <select id="ci4NRC"><option value="">NRC</option></select>
+    <div class="select-group">
+        <select id="epiT" onchange="gestionarDependientes('epidemiologia_preventiva','epi',['P'])">
+            <option value="">T</option>
+        </select>
+        <select id="epiP" onchange="repintarEPI()">
+            <option value="">P</option>
+        </select>
     </div>
 </div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#ef4444" onchange="cambiarColor('FAR', this.value)">
+<span>Farmacología</span>
+</div>
+<div class="select-group">
+<select id="farT" onchange="gestionarDependientes('farmacologia','far',['P'])">
+<option value="">T</option>
+</select>
+<select id="farP" onchange="repintarFAR()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#f59e0b" onchange="cambiarColor('CI4', this.value)">
+<span>Casos Integradores IV</span>
+</div>
+<select id="ci4NRC" onchange="repintarCI4()">
+<option value="">Sección</option>
+</select>
+</div>
+
+</div>
+
 <div id="ciclo-6" class="ciclo-content">
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#6b8cff"><span>Semiología Médica</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Hosp</option></select><select><option>Externo</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#a78bfa"><span>Médico Paciente I</span></div>
-        <div class="select-group"><select><option>Actividad</option></select><select><option>Institucional</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#4ade80"><span>Diagnóstico Imágenes</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#fbbf24"><span>Informática Médica</span></div>
-        <div class="select-group"><select><option>Teoría</option></select><select><option>Práctica</option></select></div>
-    </div>
-    <div class="curso-control">
-        <div class="curso-header"><input type="color" value="#38bdf8"><span>Fisiopatología</span></div>
-        <select id="fisioNRC"><option value="">NRC</option></select>
-    </div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#6b8cff" onchange="cambiarColor('SEM', this.value)">
+<span>Semiología Médica</span>
+</div>
+<div class="select-group">
+<select id="semT" onchange="gestionarDependientes('semiologia_medica','sem',['P'])">
+<option value="">T</option>
+</select>
+<select id="semP" onchange="repintarSEM()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#a78bfa" onchange="cambiarColor('MP', this.value)">
+<span>Médico Paciente I</span>
+</div>
+<div class="select-group">
+<select id="mpT" onchange="gestionarDependientes('medico_paciente','mp',['P'])">
+<option value="">T</option>
+</select>
+<select id="mpP" onchange="repintarMP()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#4ade80" onchange="cambiarColor('IMG', this.value)">
+<span>Diagnóstico por Imágenes</span>
+</div>
+<div class="select-group">
+<select id="imgT" onchange="gestionarDependientes('diagnostico_imagenes','img',['P'])">
+<option value="">T</option>
+</select>
+<select id="imgP" onchange="repintarIMG()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#fbbf24" onchange="cambiarColor('INF', this.value)">
+<span>Informática Médica y Bioestadística</span>
+</div>
+<div class="select-group">
+<select id="infT" onchange="gestionarDependientes('informatica_bioestadistica','inf',['P'])">
+<option value="">T</option>
+</select>
+<select id="infP" onchange="repintarINF()">
+<option value="">P</option>
+</select>
+</div>
+</div>
+
+<div class="curso-box">
+<div class="curso-header">
+<input type="color" value="#38bdf8" onchange="cambiarColor('FIS', this.value)">
+<span>Fisiopatología</span>
+</div>
+<select id="fisNRC" onchange="repintarFIS()">
+<option value="">Sección</option>
+</select>
+</div>
+
 </div>
 
             <button class="btn-export" onclick="descargarPNG()">Exportar Horario</button>
@@ -598,7 +969,23 @@ RE:'#f472b6',
 EN:'#34d399',
 NE:'#fb7185',
 MS:'#22c55e',
-RD:'#06b6d4'
+RD:'#06b6d4',
+SSI:'#dc2626',
+CI3:'#f59e0b',
+SR:'#06b6d4',
+SD:'#22c55e',
+SCV:'#ef4444',
+GM:'#6366f1',
+ PAT: '#991b1b',
+    MIC: '#16a34a',
+    EPI: '#0891b2',
+    FAR: '#ef4444',
+    CI4: '#f59e0b',
+    SEM: '#6b8cff',
+    MP:  '#a78bfa',
+    IMG: '#4ade80',
+    INF: '#fbbf24',
+    FIS: '#38bdf8'
 };
 
 function cambiarColor(curso, color){
@@ -613,10 +1000,11 @@ function cambiarColor(curso, color){
 
 }
     async function cargarDatos(nombre) {
-        const res = await fetch(`horarios/${nombre}.json`);
-        if (!res.ok) throw new Error("Archivo no encontrado");
-        return await res.json();
-    }
+    const url = `horarios/${nombre}.json`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`No se pudo cargar ${url} (${res.status})`);
+    return await res.json();
+}
 
     async function llenarSelectorSimple(archivo, idSelect, rutaDatos = "NRCs") {
     try {
@@ -671,7 +1059,7 @@ function cambiarColor(curso, color){
                 });
             }
         });
-        window["repintar" + prefijo.toUpperCase()](); 
+        await repintarTodo();
     }
 
     function pintarCurso(datos, tipo, opcion, color) {
@@ -693,12 +1081,14 @@ function cambiarColor(curso, color){
     }
 
     async function actualizarSimple(archivo, idSelect, siglaKey) {
-        limpiarPorSigla(siglaKey);
-        const nrc = document.getElementById(idSelect).value;
-        if (!nrc) return;
-        const datos = await cargarDatos(archivo);
-        pintarCurso(datos, "NRCs", nrc, colores[siglaKey]);
-    }
+    limpiarPorSigla(siglaKey);
+
+    const nrc = document.getElementById(idSelect).value;
+    if (!nrc) return;
+
+    const datos = await cargarDatos(archivo);
+    pintarCurso(datos, "NRCs", nrc, colores[siglaKey]);
+}
 
     async function repintarBM() { await repintarComplejo("biologia_molecular", "bm", "BM"); }
     async function repintarAL() { await repintarComplejo("locomotor", "al", "AL"); }
@@ -715,6 +1105,22 @@ function cambiarColor(curso, color){
     async function repintarCI2() { await actualizarSimple('casos_integradores_2', 'ci2NRC', 'CI2') ; }
     async function repintarFILO() { await repintarComplejo('filosofia', 'filo', 'FILO'); }
     async function repintarRD() { await actualizarSimple('recursos_digitales', 'rdNRC', 'RD'); }
+    async function repintarSSI() { await repintarComplejo("sangre_sistema_inmune", "ssi", "SSI"); }
+    async function repintarCI3() { await actualizarSimple("casos_integradores_3", "ci3NRC", "CI3"); }
+    async function repintarSR()  { await repintarComplejo("sistema_respiratorio", "sr", "SR"); }
+    async function repintarSD()  { await repintarComplejo("sistema_digestivo", "sd", "SD"); }
+    async function repintarSCV() { await repintarComplejo("sistema_cardiovascular", "scv", "SCV"); }
+    async function repintarGM()  { await repintarComplejo("genetica_medica", "gm", "GM"); }
+    async function repintarPAT(){ await repintarComplejo("patologia_general_especial","pat","PAT"); }
+async function repintarMIC(){ await repintarComplejo("microbiologia_parasitologia","mic","MIC"); }
+async function repintarEPI(){ await repintarComplejo("epidemiologia_preventiva","epi","EPI"); }
+async function repintarFAR(){ await repintarComplejo("farmacologia","far","FAR"); }
+async function repintarCI4(){ await actualizarSimple("casos_integradores_4","ci4NRC","CI4"); }
+async function repintarSEM(){ await repintarComplejo("semiologia_medica","sem","SEM"); }
+async function repintarMP(){ await repintarComplejo("medico_paciente","mp","MP"); }
+async function repintarIMG(){ await repintarComplejo("diagnostico_imagenes","img","IMG"); }
+async function repintarINF(){ await repintarComplejo("informatica_bioestadistica","inf","INF"); }
+async function repintarFIS(){ await actualizarSimple("fisiopatologia","fisNRC","FIS"); }
 
     async function repintarComplejo(archivo, pref, sigla) {
         limpiarPorSigla(sigla);
@@ -723,12 +1129,57 @@ function cambiarColor(curso, color){
         const lIdx = document.getElementById(pref + "L")?.value;
         const aIdx = document.getElementById(pref + "A")?.value;
         const pIdx = document.getElementById(pref + "P")?.value;
+        const hIdx = document.getElementById(pref + "H")?.value;
         
         if(t) pintarCurso(curso, "T", t, colores[sigla]);
         if(lIdx !== "" && lIdx !== undefined) pintarDesdeArray(curso, "L", t, lIdx, colores[sigla]);
         if(aIdx !== "" && aIdx !== undefined) pintarDesdeArray(curso, "A", t, aIdx, colores[sigla]);
         if(pIdx !== "" && pIdx !== undefined) pintarDesdeArray(curso, "P", t, pIdx, colores[sigla]);
+        if(hIdx !== "" && hIdx !== undefined) pintarDesdeArray(curso, "H", t, hIdx, colores[sigla]);
     }
+
+    async function repintarTodo() {
+    limpiarTodo();
+
+    // 2do ciclo
+    await repintarCOM();
+    await repintarBM();
+    await repintarEX();
+    await repintarBQ();
+    await repintarCI();
+    await repintarAL();
+
+    // 3er ciclo
+    await repintarCI2();
+    await repintarFILO();
+    await repintarRE();
+    await repintarEN();
+    await repintarNE();
+    await repintarMS();
+    await repintarRD();
+
+    // 4to ciclo
+await repintarSSI();
+await repintarCI3();
+await repintarSR();
+await repintarSD();
+await repintarSCV();
+await repintarGM();
+
+await repintarPAT();
+    await repintarMIC();
+    await repintarEPI();
+    await repintarFAR();
+    await repintarCI4();
+
+    // 6to ciclo
+    await repintarSEM();
+    await repintarMP();
+    await repintarIMG();
+    await repintarINF();
+    await repintarFIS();
+
+}
 
     async function mostrarCiclo(ciclo) {
 
@@ -765,6 +1216,38 @@ function cambiarColor(curso, color){
             await llenarSelectorTeorias("sistema_endocrino", "enT");
             await llenarSelectorTeorias("sistema_nervioso", "neT");
             await llenarSelectorTeorias("medicina_social", "msT");
+
+            }
+
+            if(ciclo == "4") {
+    await llenarSelectorTeorias("sangre_sistema_inmune", "ssiT");
+    await llenarSelectorSimple("casos_integradores_3", "ci3NRC", "NRCs");
+    await llenarSelectorTeorias("sistema_respiratorio", "srT");
+    await llenarSelectorTeorias("sistema_digestivo", "sdT");
+    await llenarSelectorTeorias("sistema_cardiovascular", "scvT");
+    await llenarSelectorTeorias("genetica_medica", "gmT");
+        
+}
+
+if(ciclo == "5"){
+
+await llenarSelectorTeorias("patologia_general_especial","patT");
+await llenarSelectorTeorias("microbiologia_parasitologia","micT");
+await llenarSelectorTeorias("epidemiologia_preventiva","epiT");
+await llenarSelectorTeorias("farmacologia","farT");
+await llenarSelectorSimple("casos_integradores_4","ci4NRC");
+
+}
+
+if(ciclo == "6"){
+
+await llenarSelectorTeorias("semiologia_medica","semT");
+await llenarSelectorTeorias("medico_paciente","mpT");
+await llenarSelectorTeorias("diagnostico_imagenes","imgT");
+await llenarSelectorTeorias("informatica_bioestadistica","infT");
+
+await llenarSelectorSimple("fisiopatologia","fisNRC");
+
 }
 
     }else{
