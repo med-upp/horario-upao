@@ -1,0 +1,22 @@
+{
+  "nombre": "Filosofía y Pensamiento Crítico",
+  "sigla": "FILO",
+  "T": {
+    "1": {"nrc": "2686", "seccion": "M01", "bloques": [{"dia": 6, "inicio": 1, "fin": 2}]},
+    "2": {"nrc": "2688", "seccion": "M03", "bloques": [{"dia": 6, "inicio": 5, "fin": 6}]},
+    "3": {"nrc": "2690", "seccion": "M05", "bloques": [{"dia": 1, "inicio": 13, "fin": 14}]},
+    "4": {"nrc": "2692", "seccion": "M07", "bloques": [{"dia": 2, "inicio": 13, "fin": 14}]},
+    "5": {"nrc": "2694", "seccion": "M09", "bloques": [{"dia": 3, "inicio": 13, "fin": 14}]},
+    "6": {"nrc": "2696", "seccion": "M11", "bloques": [{"dia": 4, "inicio": 13, "fin": 14}]},
+    "7": {"nrc": "6559", "seccion": "M13", "bloques": [{"dia": 5, "inicio": 13, "fin": 14}]}
+  },
+  "P": {
+    "1": [{"nrc": "2687", "seccion": "M02", "bloques": [{"dia": 6, "inicio": 3, "fin": 4}]}],
+    "2": [{"nrc": "2689", "seccion": "M04", "bloques": [{"dia": 6, "inicio": 7, "fin": 8}]}],
+    "3": [{"nrc": "2691", "seccion": "M06", "bloques": [{"dia": 1, "inicio": 15, "fin": 16}]}],
+    "4": [{"nrc": "2693", "seccion": "M08", "bloques": [{"dia": 2, "inicio": 15, "fin": 16}]}],
+    "5": [{"nrc": "2695", "seccion": "M10", "bloques": [{"dia": 3, "inicio": 15, "fin": 16}]}],
+    "6": [{"nrc": "2697", "seccion": "M12", "bloques": [{"dia": 4, "inicio": 15, "fin": 16}]}],
+    "7": [{"nrc": "6560", "seccion": "M14", "bloques": [{"dia": 5, "inicio": 15, "fin": 16}]}]
+  }
+}

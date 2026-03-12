@@ -1,0 +1,34 @@
+{
+  "nombre": "Sistema Respiratorio",
+  "sigla": "SR",
+  "T": {
+    "1": {"nrc": "2740", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 11, "fin": 12}]},
+    "2": {"nrc": "2741", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 13, "fin": 14}]},
+    "3": {"nrc": "2742", "seccion": "T3", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+    "4": {"nrc": "6941", "seccion": "T4", "bloques": [{"dia": 1, "inicio": 3, "fin": 4}]},
+    "5": {"nrc": "6942", "seccion": "T5", "bloques": [{"dia": 1, "inicio": 5, "fin": 6}]},
+    "6": {"nrc": "6943", "seccion": "T6", "bloques": [{"dia": 1, "inicio": 9, "fin": 10}]},
+    "7": {"nrc": "6944", "seccion": "T7", "bloques": [{"dia": 2, "inicio": 13, "fin": 14}]},
+    "8": {"nrc": "6945", "seccion": "T8", "bloques": [{"dia": 1, "inicio": 7, "fin": 8}]}
+  },
+  "L": {
+    "1": [{"nrc": "10609", "seccion": "L1", "bloques": [{"dia": 5, "inicio": 11, "fin": 12}]}],
+    "2": [{"nrc": "10611", "seccion": "L2", "bloques": [{"dia": 5, "inicio": 13, "fin": 14}]}],
+    "3": [{"nrc": "10613", "seccion": "L3", "bloques": [{"dia": 5, "inicio": 9, "fin": 10}]}],
+    "4": [{"nrc": "10615", "seccion": "L4", "bloques": [{"dia": 5, "inicio": 5, "fin": 6}]}],
+    "5": [{"nrc": "10617", "seccion": "L5", "bloques": [{"dia": 5, "inicio": 3, "fin": 4}]}],
+    "6": [{"nrc": "10619", "seccion": "L6", "bloques": [{"dia": 3, "inicio": 5, "fin": 6}]}],
+    "7": [{"nrc": "10621", "seccion": "L7", "bloques": [{"dia": 6, "inicio": 11, "fin": 12}]}],
+    "8": [{"nrc": "10623", "seccion": "L8", "bloques": [{"dia": 6, "inicio": 9, "fin": 10}]}]
+  },
+  "A": {
+    "1": [{"nrc": "10610", "seccion": "A1", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]}],
+    "2": [{"nrc": "10612", "seccion": "A2", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]}],
+    "3": [{"nrc": "10614", "seccion": "A3", "bloques": [{"dia": 5, "inicio": 5, "fin": 8}]}],
+    "4": [{"nrc": "10616", "seccion": "A4", "bloques": [{"dia": 5, "inicio": 1, "fin": 4}]}],
+    "5": [{"nrc": "10618", "seccion": "A5", "bloques": [{"dia": 3, "inicio": 5, "fin": 8}]}],
+    "6": [{"nrc": "10620", "seccion": "A6", "bloques": [{"dia": 3, "inicio": 1, "fin": 4}]}],
+    "7": [{"nrc": "10622", "seccion": "A7", "bloques": [{"dia": 6, "inicio": 1, "fin": 4}]}],
+    "8": [{"nrc": "10624", "seccion": "A8", "bloques": [{"dia": 6, "inicio": 5, "fin": 8}]}]
+  }
+}

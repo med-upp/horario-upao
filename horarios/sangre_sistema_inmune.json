@@ -1,0 +1,24 @@
+{
+  "nombre": "Sangre y Sistema Inmune",
+  "sigla": "SSI",
+  "T": {
+    "1": {"nrc": "2717", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 1, "fin": 3}]},
+    "2": {"nrc": "2719", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 4, "fin": 6}]},
+    "3": {"nrc": "2721", "seccion": "T3", "bloques": [{"dia": 1, "inicio": 11, "fin": 13}]},
+    "4": {"nrc": "2723", "seccion": "T4", "bloques": [{"dia": 1, "inicio": 14, "fin": 16}]},
+    "5": {"nrc": "2725", "seccion": "T5", "bloques": [{"dia": 2, "inicio": 1, "fin": 3}]},
+    "6": {"nrc": "2727", "seccion": "T6", "bloques": [{"dia": 2, "inicio": 4, "fin": 6}]},
+    "7": {"nrc": "2729", "seccion": "T7", "bloques": [{"dia": 2, "inicio": 10, "fin": 12}]},
+    "8": {"nrc": "2731", "seccion": "T8", "bloques": [{"dia": 2, "inicio": 7, "fin": 9}]}
+  },
+  "P": {
+    "1": [{"nrc": "2718", "seccion": "P1", "bloques": [{"dia": 4, "inicio": 1, "fin": 4}]}],
+    "2": [{"nrc": "2720", "seccion": "P2", "bloques": [{"dia": 2, "inicio": 1, "fin": 4}]}],
+    "3": [{"nrc": "2722", "seccion": "P3", "bloques": [{"dia": 3, "inicio": 1, "fin": 4}]}],
+    "4": [{"nrc": "2724", "seccion": "P4", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]}],
+    "5": [{"nrc": "2726", "seccion": "P5", "bloques": [{"dia": 4, "inicio": 13, "fin": 16}]}],
+    "6": [{"nrc": "2728", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 1, "fin": 4}]}],
+    "7": [{"nrc": "2730", "seccion": "P7", "bloques": [{"dia": 5, "inicio": 5, "fin": 8}]}],
+    "8": [{"nrc": "2732", "seccion": "P8", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]}]
+  }
+}

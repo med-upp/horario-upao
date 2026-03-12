@@ -1,0 +1,43 @@
+{
+  "nombre": "Genética Médica",
+  "sigla": "GM",
+  "T": {
+    "1": {"nrc": "2749", "seccion": "T1", "bloques": [{"dia": 3, "inicio": 7, "fin": 8}]},
+    "2": {"nrc": "2752", "seccion": "T2", "bloques": [{"dia": 3, "inicio": 9, "fin": 10}]},
+    "3": {"nrc": "2754", "seccion": "T3", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+    "4": {"nrc": "2757", "seccion": "T4", "bloques": [{"dia": 3, "inicio": 5, "fin": 6}]},
+    "5": {"nrc": "2759", "seccion": "T5", "bloques": [{"dia": 2, "inicio": 5, "fin": 6}]},
+    "6": {"nrc": "2762", "seccion": "T6", "bloques": [{"dia": 2, "inicio": 7, "fin": 8}]},
+    "7": {"nrc": "9036", "seccion": "T7", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]}
+  },
+  "P": {
+    "1": [
+      {"nrc": "2750", "seccion": "P1", "bloques": [{"dia": 6, "inicio": 1, "fin": 2}]},
+      {"nrc": "2751", "seccion": "P1", "bloques": [{"dia": 4, "inicio": 7, "fin": 8}]}
+    ],
+    "2": [
+      {"nrc": "2753", "seccion": "P2", "bloques": [{"dia": 5, "inicio": 1, "fin": 2}]},
+      {"nrc": "8700", "seccion": "P2", "bloques": [{"dia": 5, "inicio": 7, "fin": 8}]}
+    ],
+    "3": [
+      {"nrc": "2755", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 1, "fin": 2}]},
+      {"nrc": "2756", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 3, "fin": 4}]}
+    ],
+    "4": [
+      {"nrc": "2758", "seccion": "P4", "bloques": [{"dia": 5, "inicio": 3, "fin": 4}]},
+      {"nrc": "8701", "seccion": "P4", "bloques": [{"dia": 5, "inicio": 5, "fin": 6}]}
+    ],
+    "5": [
+      {"nrc": "2760", "seccion": "P5", "bloques": [{"dia": 2, "inicio": 9, "fin": 10}]},
+      {"nrc": "2761", "seccion": "P5", "bloques": [{"dia": 2, "inicio": 11, "fin": 12}]}
+    ],
+    "6": [
+      {"nrc": "2763", "seccion": "P6", "bloques": [{"dia": 2, "inicio": 13, "fin": 14}]},
+      {"nrc": "8702", "seccion": "P6", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]}
+    ],
+    "7": [
+      {"nrc": "9037", "seccion": "P7", "bloques": [{"dia": 6, "inicio": 3, "fin": 4}]},
+      {"nrc": "9038", "seccion": "P7", "bloques": [{"dia": 6, "inicio": 5, "fin": 6}]}
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "nombre": "Patología General y Especializada",
+  "sigla": "PAT",
+  "T": {
+    "1": {"nrc": "2764", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 8, "fin": 10}, {"dia": 2, "inicio": 8, "fin": 10}]},
+    "2": {"nrc": "2766", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 11, "fin": 13}, {"dia": 2, "inicio": 11, "fin": 13}]},
+    "3": {"nrc": "2768", "seccion": "T3", "bloques": [{"dia": 1, "inicio": 14, "fin": 16}, {"dia": 2, "inicio": 14, "fin": 16}]},
+    "4": {"nrc": "2769", "seccion": "T4", "bloques": [{"dia": 2, "inicio": 8, "fin": 10}, {"dia": 3, "inicio": 8, "fin": 10}]},
+    "5": {"nrc": "2771", "seccion": "T5", "bloques": [{"dia": 1, "inicio": 8, "fin": 10}, {"dia": 2, "inicio": 11, "fin": 13}]},
+    "6": {"nrc": "2773", "seccion": "T6", "bloques": [{"dia": 1, "inicio": 11, "fin": 13}, {"dia": 2, "inicio": 14, "fin": 16}]},
+    "8": {"nrc": "6760", "seccion": "T8", "bloques": [{"dia": 2, "inicio": 14, "fin": 16}, {"dia": 6, "inicio": 1, "fin": 3}]}
+  },
+  "P": {
+    "1": [
+      {"nrc": "2765", "seccion": "P1", "bloques": [{"dia": 3, "inicio": 9, "fin": 12}]},
+      {"nrc": "6566", "seccion": "P1", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]}
+    ],
+    "2": [
+      {"nrc": "2767", "seccion": "P2", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]},
+      {"nrc": "6567", "seccion": "P2", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]}
+    ],
+    "3": [{"nrc": "6568", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 13, "fin": 16}]}],
+    "4": [
+      {"nrc": "2770", "seccion": "P4", "bloques": [{"dia": 4, "inicio": 9, "fin": 12}]},
+      {"nrc": "6569", "seccion": "P4", "bloques": [{"dia": 4, "inicio": 13, "fin": 16}]}
+    ],
+    "5": [
+      {"nrc": "2772", "seccion": "P5", "bloques": [{"dia": 3, "inicio": 9, "fin": 12}]},
+      {"nrc": "6570", "seccion": "P5", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]}
+    ],
+    "6": [
+      {"nrc": "2774", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]},
+      {"nrc": "6571", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]}
+    ],
+    "8": [
+      {"nrc": "6761", "seccion": "P8", "bloques": [{"dia": 6, "inicio": 9, "fin": 12}]},
+      {"nrc": "6790", "seccion": "P8", "bloques": [{"dia": 6, "inicio": 5, "fin": 8}]}
+    ]
+  }
+}

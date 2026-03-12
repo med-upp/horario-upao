@@ -1,0 +1,16 @@
+{
+  "nombre": "Casos Integradores IV",
+  "sigla": "CI4",
+  "NRCs": {
+    "2823": {"nrc": "2823", "seccion": "M01", "bloques": [{"dia": 4, "inicio": 9, "fin": 12}]},
+    "2824": {"nrc": "2824", "seccion": "M02", "bloques": [{"dia": 4, "inicio": 13, "fin": 16}]},
+    "2825": {"nrc": "2825", "seccion": "M03", "bloques": [{"dia": 6, "inicio": 9, "fin": 12}]},
+    "2826": {"nrc": "2826", "seccion": "M04", "bloques": [{"dia": 6, "inicio": 13, "fin": 16}]},
+    "2827": {"nrc": "2827", "seccion": "M05", "bloques": [{"dia": 3, "inicio": 9, "fin": 12}]},
+    "2828": {"nrc": "2828", "seccion": "M06", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]},
+    "2829": {"nrc": "2829", "seccion": "M07", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]},
+    "6557": {"nrc": "6557", "seccion": "M08", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]},
+    "6558": {"nrc": "6558", "seccion": "M09", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]},
+    "6788": {"nrc": "6788", "seccion": "M10", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]}
+  }
+}
