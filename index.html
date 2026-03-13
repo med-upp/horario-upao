@@ -855,18 +855,21 @@ pointer-events:auto;
 <div id="ciclo-6" class="ciclo-content">
 
 <div class="curso-box">
-<div class="curso-header">
-<input type="color" value="#6b8cff" onchange="cambiarColor('SEM', this.value)">
-<span>Semiología Médica</span>
-</div>
-<div class="select-group">
-<select id="semT" onchange="gestionarDependientes('semiologia_medica','sem',['P'])">
-<option value="">T</option>
-</select>
-<select id="semP" onchange="repintarSEM()">
-<option value="">P</option>
-</select>
-</div>
+    <div class="curso-header">
+        <input type="color" value="#6b8cff" onchange="cambiarColor('SEM', this.value)">
+        <span>Semiología Médica</span>
+    </div>
+    <div class="select-group">
+        <select id="semT" onchange="gestionarDependientes('semiologia_medica','sem',['H','I'])">
+            <option value="">T</option>
+        </select>
+        <select id="semH" onchange="repintarSEM()">
+            <option value="">H</option>
+        </select>
+        <select id="semI" onchange="repintarSEM()">
+            <option value="">I</option>
+        </select>
+    </div>
 </div>
 
 <div class="curso-box">
@@ -875,11 +878,11 @@ pointer-events:auto;
 <span>Médico Paciente I</span>
 </div>
 <div class="select-group">
-<select id="mpT" onchange="gestionarDependientes('medico_paciente','mp',['P'])">
+<select id="mpT" onchange="gestionarDependientes('medico_paciente','mp',['I'])">
 <option value="">T</option>
 </select>
-<select id="mpP" onchange="repintarMP()">
-<option value="">P</option>
+<select id="mpI" onchange="repintarMP()">
+<option value="">I</option>
 </select>
 </div>
 </div>
@@ -1130,12 +1133,14 @@ async function repintarFIS(){ await actualizarSimple("fisiopatologia","fisNRC","
         const aIdx = document.getElementById(pref + "A")?.value;
         const pIdx = document.getElementById(pref + "P")?.value;
         const hIdx = document.getElementById(pref + "H")?.value;
-        
+        const iIdx = document.getElementById(pref + "I")?.value;
+
         if(t) pintarCurso(curso, "T", t, colores[sigla]);
         if(lIdx !== "" && lIdx !== undefined) pintarDesdeArray(curso, "L", t, lIdx, colores[sigla]);
         if(aIdx !== "" && aIdx !== undefined) pintarDesdeArray(curso, "A", t, aIdx, colores[sigla]);
         if(pIdx !== "" && pIdx !== undefined) pintarDesdeArray(curso, "P", t, pIdx, colores[sigla]);
         if(hIdx !== "" && hIdx !== undefined) pintarDesdeArray(curso, "H", t, hIdx, colores[sigla]);
+        if (iIdx !== "" && iIdx !== undefined) pintarDesdeArray(curso, "I", t, iIdx, colores[sigla]);
     }
 
     async function repintarTodo() {
