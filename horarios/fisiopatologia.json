@@ -1,0 +1,41 @@
+{
+  "nombre": "Fisiopatología",
+  "sigla": "FIS",
+  "NRCs": {
+    "2848": {
+      "nrc": "2848",
+      "seccion": "M01",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "2849": {
+      "nrc": "2849",
+      "seccion": "M02",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "2850": {
+      "nrc": "2850",
+      "seccion": "M03",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "9189": {
+      "nrc": "9189",
+      "seccion": "M04",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "2851": {
+      "nrc": "2851",
+      "seccion": "M05",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "8758": {
+      "nrc": "8758",
+      "seccion": "M06",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    },
+    "9190": {
+      "nrc": "9190",
+      "seccion": "M07",
+      "bloques": [{"dia": 3, "inicio": 13, "fin": 15}]
+    }
+  }
+}

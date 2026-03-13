@@ -1,0 +1,54 @@
+{
+  "nombre": "Epidemiología y Medicina Preventiva",
+  "sigla": "EPI",
+  "T": {
+    "1": {"nrc": "2791", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 1, "fin": 2}]},
+    "2": {"nrc": "2797", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 3, "fin": 4}]},
+    "3": {"nrc": "2803", "seccion": "T3", "bloques": [{"dia": 2, "inicio": 1, "fin": 2}]},
+    "4": {"nrc": "6543", "seccion": "T4", "bloques": [{"dia": 2, "inicio": 3, "fin": 4}]},
+    "5": {"nrc": "6546", "seccion": "T5", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]},
+    "6": {"nrc": "6551", "seccion": "T6", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]}
+  },
+  "P": {
+    "1": [
+      {"nrc": "2792", "seccion": "P1", "bloques": [{"dia": 2, "inicio": 1, "fin": 2}]},
+      {"nrc": "2793", "seccion": "P1", "bloques": [{"dia": 2, "inicio": 3, "fin": 4}]},
+      {"nrc": "2794", "seccion": "P1", "bloques": [{"dia": 2, "inicio": 5, "fin": 6}]},
+      {"nrc": "2795", "seccion": "P1", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]},
+      {"nrc": "2796", "seccion": "P1", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+      {"nrc": "6541", "seccion": "P1", "bloques": [{"dia": 3, "inicio": 5, "fin": 6}]}
+    ],
+    "2": [
+      {"nrc": "2798", "seccion": "P2", "bloques": [{"dia": 2, "inicio": 1, "fin": 2}]},
+      {"nrc": "2799", "seccion": "P2", "bloques": [{"dia": 2, "inicio": 3, "fin": 4}]},
+      {"nrc": "2800", "seccion": "P2", "bloques": [{"dia": 2, "inicio": 5, "fin": 6}]},
+      {"nrc": "2801", "seccion": "P2", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]},
+      {"nrc": "2802", "seccion": "P2", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+      {"nrc": "6542", "seccion": "P2", "bloques": [{"dia": 6, "inicio": 7, "fin": 8}]}
+    ],
+    "3": [
+      {"nrc": "2804", "seccion": "P3", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]},
+      {"nrc": "2805", "seccion": "P3", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+      {"nrc": "2806", "seccion": "P3", "bloques": [{"dia": 3, "inicio": 5, "fin": 6}]},
+      {"nrc": "2807", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 1, "fin": 2}]},
+      {"nrc": "2808", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 3, "fin": 4}]}
+    ],
+    "4": [
+      {"nrc": "6544", "seccion": "P4", "bloques": [{"dia": 4, "inicio": 1, "fin": 2}]},
+      {"nrc": "6545", "seccion": "P4", "bloques": [{"dia": 4, "inicio": 3, "fin": 4}]}
+    ],
+    "5": [
+      {"nrc": "6547", "seccion": "P5", "bloques": [{"dia": 5, "inicio": 1, "fin": 2}]},
+      {"nrc": "6548", "seccion": "P5", "bloques": [{"dia": 5, "inicio": 3, "fin": 4}]},
+      {"nrc": "6549", "seccion": "P5", "bloques": [{"dia": 5, "inicio": 5, "fin": 6}]},
+      {"nrc": "6550", "seccion": "P5", "bloques": [{"dia": 6, "inicio": 3, "fin": 4}]}
+    ],
+    "6": [
+      {"nrc": "6552", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 1, "fin": 2}]},
+      {"nrc": "6553", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 3, "fin": 4}]},
+      {"nrc": "6554", "seccion": "P6", "bloques": [{"dia": 5, "inicio": 5, "fin": 6}]},
+      {"nrc": "6555", "seccion": "P6", "bloques": [{"dia": 6, "inicio": 3, "fin": 4}]},
+      {"nrc": "6556", "seccion": "P6", "bloques": [{"dia": 6, "inicio": 5, "fin": 6}]}
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "nombre": "Diagnóstico por Imágenes",
+  "sigla": "IMG",
+  "T": {
+    "1": {"nrc": "2830", "seccion": "T1", "bloques": [{"dia": 4, "inicio": 15, "fin": 16}]},
+    "2": {"nrc": "2832", "seccion": "T2", "bloques": [{"dia": 5, "inicio": 4, "fin": 5}]},
+    "3": {"nrc": "2834", "seccion": "T3", "bloques": [{"dia": 6, "inicio": 2, "fin": 3}]},
+    "4": {"nrc": "6679", "seccion": "T4", "bloques": [{"dia": 5, "inicio": 13, "fin": 14}]}
+  },
+  "P": {
+    "1": [{"nrc": "2831", "seccion": "P1", "bloques": [{"dia": 2, "inicio": 2, "fin": 7}]}],
+    "2": [{"nrc": "2833", "seccion": "P2", "bloques": [{"dia": 3, "inicio": 2, "fin": 7}]}],
+    "3": [{"nrc": "2835", "seccion": "P3", "bloques": [{"dia": 4, "inicio": 2, "fin": 7}]}],
+    "4": [{"nrc": "6680", "seccion": "P4", "bloques": [{"dia": 5, "inicio": 6, "fin": 8}, {"dia": 6, "inicio": 6, "fin": 8}]}]
+  }
+}

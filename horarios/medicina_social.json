@@ -1,0 +1,37 @@
+{
+  "nombre": "Medicina Social",
+  "sigla": "MS",
+  "T": {
+    "1": {"nrc": "8491", "seccion": "M01", "bloques": [{"dia": 1, "inicio": 1, "fin": 2}]},
+    "2": {"nrc": "8494", "seccion": "M04", "bloques": [{"dia": 2, "inicio": 5, "fin": 6}]},
+    "3": {"nrc": "8497", "seccion": "M07", "bloques": [{"dia": 3, "inicio": 1, "fin": 2}]},
+    "4": {"nrc": "8500", "seccion": "M10", "bloques": [{"dia": 3, "inicio": 5, "fin": 6}]},
+    "5": {"nrc": "8502", "seccion": "M13", "bloques": [{"dia": 4, "inicio": 1, "fin": 2}]},
+    "6": {"nrc": "8505", "seccion": "M16", "bloques": [{"dia": 4, "inicio": 5, "fin": 6}]},
+    "7": {"nrc": "8636", "seccion": "M19", "bloques": [{"dia": 5, "inicio": 1, "fin": 2}]}
+  },
+  "P": {
+    "1": [
+      {"nrc": "8492", "seccion": "M02", "bloques": [{"dia": 1, "inicio": 3, "fin": 4}]},
+      {"nrc": "8493", "seccion": "M03", "bloques": [{"dia": 1, "inicio": 5, "fin": 6}]}
+    ],
+    "2": [
+      {"nrc": "8495", "seccion": "M05", "bloques": [{"dia": 2, "inicio": 7, "fin": 8}]},
+      {"nrc": "8496", "seccion": "M06", "bloques": [{"dia": 2, "inicio": 7, "fin": 8}]}
+    ],
+    "3": [
+      {"nrc": "8498", "seccion": "M08", "bloques": [{"dia": 3, "inicio": 3, "fin": 4}]},
+      {"nrc": "8499", "seccion": "M09", "bloques": [{"dia": 3, "inicio": 9, "fin": 10}]}
+    ],
+    "4": [{"nrc": "8501", "seccion": "M12", "bloques": [{"dia": 6, "inicio": 3, "fin": 4}]}],
+    "5": [
+      {"nrc": "8503", "seccion": "M14", "bloques": [{"dia": 4, "inicio": 9, "fin": 10}]},
+      {"nrc": "8504", "seccion": "M15", "bloques": [{"dia": 4, "inicio": 11, "fin": 12}]}
+    ],
+    "6": [{"nrc": "8635", "seccion": "M17", "bloques": [{"dia": 4, "inicio": 13, "fin": 14}]}],
+    "7": [
+      {"nrc": "8637", "seccion": "M20", "bloques": [{"dia": 5, "inicio": 3, "fin": 4}]},
+      {"nrc": "8638", "seccion": "M21", "bloques": [{"dia": 5, "inicio": 5, "fin": 6}]}
+    ]
+  }
+}

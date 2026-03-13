@@ -1,0 +1,12 @@
+{
+  "nombre": "Casos Integradores II",
+  "sigla": "CI2",
+  "NRCs": {
+    "2680": {"nrc": "2680", "seccion": "M01", "bloques": [{"dia": 5, "inicio": 1, "fin": 4}]},
+    "2681": {"nrc": "2681", "seccion": "M02", "bloques": [{"dia": 5, "inicio": 5, "fin": 8}]},
+    "2682": {"nrc": "2682", "seccion": "M03", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]},
+    "2683": {"nrc": "2683", "seccion": "M04", "bloques": [{"dia": 6, "inicio": 1, "fin": 4}]},
+    "2684": {"nrc": "2684", "seccion": "M05", "bloques": [{"dia": 6, "inicio": 5, "fin": 8}]},
+    "2685": {"nrc": "2685", "seccion": "M06", "bloques": [{"dia": 6, "inicio": 13, "fin": 16}]}
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "nombre": "Informática Médica y Bioestadística",
+  "sigla": "INF",
+  "T": {
+    "1": {"nrc": "2836", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 11, "fin": 12}]},
+    "2": {"nrc": "2839", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 13, "fin": 14}]},
+    "3": {"nrc": "2842", "seccion": "T3", "bloques": [{"dia": 1, "inicio": 9, "fin": 10}]},
+    "4": {"nrc": "2845", "seccion": "T4", "bloques": [{"dia": 3, "inicio": 11, "fin": 12}]}
+  },
+  "P": {
+    "1": [{"nrc": "2837","seccion": "P1","bloques": [{"dia": 4, "inicio": 11, "fin": 12}] },{ "nrc": "2838","seccion": "P1","bloques": [{"dia": 4, "inicio": 13, "fin": 14}]}],
+    "2": [ {"nrc": "2840","seccion": "P2","bloques": [{"dia": 1, "inicio": 15, "fin": 16}]}, {"nrc": "2841","seccion": "P2","bloques": [{"dia": 4, "inicio": 15, "fin": 16}]}],
+    "3": [{"nrc": "2843","seccion": "P3","bloques": [{"dia": 5, "inicio": 9, "fin": 10}]},{"nrc": "2844","seccion": "P3","bloques": [{"dia": 5, "inicio": 11, "fin": 12}]}],
+    "4": [{"nrc": "2846","seccion": "P4","bloques": [{"dia": 5, "inicio": 13, "fin": 14}]},{"nrc": "2847","seccion": "P4","bloques": [{"dia": 5, "inicio": 15, "fin": 16}]}]
+  }
+}

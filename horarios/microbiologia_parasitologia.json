@@ -1,0 +1,30 @@
+{
+  "nombre": "Microbiología y Parasitología",
+  "sigla": "MIC",
+  "T": {
+    "1": {"nrc": "2775", "seccion": "T1", "bloques": [{"dia": 1, "inicio": 8, "fin": 10}]},
+    "2": {"nrc": "2777", "seccion": "T2", "bloques": [{"dia": 1, "inicio": 11, "fin": 13}]},
+    "3": {"nrc": "2779", "seccion": "T3", "bloques": [{"dia": 1, "inicio": 14, "fin": 16}]},
+    "4": {"nrc": "2781", "seccion": "T4", "bloques": [{"dia": 2, "inicio": 8, "fin": 10}]},
+    "5": {"nrc": "2783", "seccion": "T5", "bloques": [{"dia": 2, "inicio": 11, "fin": 13}]},
+    "6": {"nrc": "2785", "seccion": "T6", "bloques": [{"dia": 2, "inicio": 14, "fin": 16}]},
+    "7": {"nrc": "2787", "seccion": "T7", "bloques": [{"dia": 4, "inicio": 11, "fin": 13}]},
+    "8": {"nrc": "2789", "seccion": "T8", "bloques": [{"dia": 4, "inicio": 14, "fin": 16}]},
+    "9": {"nrc": "6769", "seccion": "T9", "bloques": [{"dia": 4, "inicio": 11, "fin": 13}]},
+    "10": {"nrc": "9014", "seccion": "T10", "bloques": [{"dia": 1, "inicio": 11, "fin": 13}]},
+    "11": {"nrc": "9066", "seccion": "T11", "bloques": [{"dia": 1, "inicio": 1, "fin": 3}]}
+  },
+  "P": {
+    "1": [{"nrc": "2776", "seccion": "P1", "bloques": [{"dia": 6, "inicio": 1, "fin": 4}]}],
+    "2": [{"nrc": "2778", "seccion": "P2", "bloques": [{"dia": 2, "inicio": 13, "fin": 16}]}],
+    "3": [{"nrc": "2780", "seccion": "P3", "bloques": [{"dia": 6, "inicio": 5, "fin": 8}]}],
+    "4": [{"nrc": "2782", "seccion": "P4", "bloques": [{"dia": 3, "inicio": 13, "fin": 16}]}],
+    "5": [{"nrc": "2784", "seccion": "P5", "bloques": [{"dia": 6, "inicio": 9, "fin": 12}]}],
+    "6": [{"nrc": "2786", "seccion": "P6", "bloques": [{"dia": 4, "inicio": 13, "fin": 16}]}],
+    "7": [{"nrc": "2788", "seccion": "P7", "bloques": [{"dia": 6, "inicio": 13, "fin": 16}]}],
+    "8": [{"nrc": "2790", "seccion": "P8", "bloques": [{"dia": 5, "inicio": 13, "fin": 16}]}],
+    "9": [{"nrc": "6770", "seccion": "P9", "bloques": [{"dia": 5, "inicio": 9, "fin": 12}]}],
+    "10": [{"nrc": "9015", "seccion": "P10", "bloques": [{"dia": 3, "inicio": 9, "fin": 12}]}],
+    "11": [{"nrc": "9067", "seccion": "P11", "bloques": [{"dia": 4, "inicio": 9, "fin": 12}]}]
+  }
+}
