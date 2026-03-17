@@ -2,58 +2,58 @@
   "nombre": "Médico Paciente I",
   "sigla": "MP1",
   "T": {
-    "1": {"nrc": "10832", "seccion": "T1", "bloques": [{"dia": 2, "inicio": 10, "fin": 12}]},
-    "2": {"nrc": "10839", "seccion": "T2", "bloques": [{"dia": 2, "inicio": 10, "fin": 12}]},
-    "3": {"nrc": "10944", "seccion": "T3", "bloques": [{"dia": 2, "inicio": 10, "fin": 12}]},
-    "4": {"nrc": "10951", "seccion": "T4", "bloques": [{"dia": 2, "inicio": 13, "fin": 15}]},
-    "5": {"nrc": "10958", "seccion": "T5", "bloques": [{"dia": 2, "inicio": 13, "fin": 15}]},
-    "6": {"nrc": "10965", "seccion": "T6", "bloques": [{"dia": 2, "inicio": 13, "fin": 15}]}
+    "1": {"nrc": "10832", "seccion": "M01", "bloques": [{"dia": 2, "inicio": 16, "fin": 18}]},
+    "2": {"nrc": "10839", "seccion": "M08", "bloques": [{"dia": 2, "inicio": 16, "fin": 18}]},
+    "3": {"nrc": "10944", "seccion": "M15", "bloques": [{"dia": 2, "inicio": 16, "fin": 18}]},
+    "4": {"nrc": "10951", "seccion": "M22", "bloques": [{"dia": 2, "inicio": 19, "fin": 21}]},
+    "5": {"nrc": "10958", "seccion": "M29", "bloques": [{"dia": 2, "inicio": 19, "fin": 21}]},
+    "6": {"nrc": "10965", "seccion": "M36", "bloques": [{"dia": 2, "inicio": 19, "fin": 21}]}
   },
   "I": {
     "1": [
-      {"nrc": "10833", "seccion": "A1-M02", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10834", "seccion": "A1-M03", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10835", "seccion": "A1-M04", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]},
-      {"nrc": "10836", "seccion": "A1-M05", "bloques": [{"dia": 4, "inicio": 13, "fin": 13}]},
-      {"nrc": "10837", "seccion": "A1-M06", "bloques": [{"dia": 4, "inicio": 14, "fin": 14}]},
-      {"nrc": "10838", "seccion": "A1-M07", "bloques": [{"dia": 4, "inicio": 15, "fin": 15}]}
+      {"nrc": "10833", "seccion": "A1-M02", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10834", "seccion": "A1-M03", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10835", "seccion": "A1-M04", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]},
+      {"nrc": "10836", "seccion": "A1-M05", "bloques": [{"dia": 4, "inicio": 19, "fin": 19}]},
+      {"nrc": "10837", "seccion": "A1-M06", "bloques": [{"dia": 4, "inicio": 20, "fin": 20}]},
+      {"nrc": "10838", "seccion": "A1-M07", "bloques": [{"dia": 4, "inicio": 21, "fin": 21}]}
     ],
     "2": [
-      {"nrc": "10840", "seccion": "A2-M09", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10841", "seccion": "A2-M10", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10842", "seccion": "A2-M11", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]},
-      {"nrc": "10843", "seccion": "A2-M12", "bloques": [{"dia": 4, "inicio": 13, "fin": 13}]},
-      {"nrc": "10942", "seccion": "A2-M13", "bloques": [{"dia": 4, "inicio": 14, "fin": 14}]},
-      {"nrc": "10943", "seccion": "A2-M14", "bloques": [{"dia": 4, "inicio": 15, "fin": 15}]}
+      {"nrc": "10840", "seccion": "A2-M09", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10841", "seccion": "A2-M10", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10842", "seccion": "A2-M11", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]},
+      {"nrc": "10843", "seccion": "A2-M12", "bloques": [{"dia": 4, "inicio": 19, "fin": 19}]},
+      {"nrc": "10942", "seccion": "A2-M13", "bloques": [{"dia": 4, "inicio": 20, "fin": 20}]},
+      {"nrc": "10943", "seccion": "A2-M14", "bloques": [{"dia": 4, "inicio": 21, "fin": 21}]}
     ],
     "3": [
-      {"nrc": "10945", "seccion": "A3-M16", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10946", "seccion": "A3-M17", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10947", "seccion": "A3-M18", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]},
-      {"nrc": "10948", "seccion": "A3-M19", "bloques": [{"dia": 4, "inicio": 13, "fin": 13}]},
-      {"nrc": "10949", "seccion": "A3-M20", "bloques": [{"dia": 4, "inicio": 14, "fin": 14}]},
-      {"nrc": "10950", "seccion": "A3-M21", "bloques": [{"dia": 4, "inicio": 15, "fin": 15}]}
+      {"nrc": "10945", "seccion": "A3-M16", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10946", "seccion": "A3-M17", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10947", "seccion": "A3-M18", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]},
+      {"nrc": "10948", "seccion": "A3-M19", "bloques": [{"dia": 4, "inicio": 19, "fin": 19}]},
+      {"nrc": "10949", "seccion": "A3-M20", "bloques": [{"dia": 4, "inicio": 20, "fin": 20}]},
+      {"nrc": "10950", "seccion": "A3-M21", "bloques": [{"dia": 4, "inicio": 21, "fin": 21}]}
     ],
     "4": [
-      {"nrc": "10952", "seccion": "A4-M23", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10953", "seccion": "A4-M24", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10954", "seccion": "A4-M25", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]},
-      {"nrc": "10955", "seccion": "A4-M26", "bloques": [{"dia": 4, "inicio": 13, "fin": 13}]},
-      {"nrc": "10956", "seccion": "A4-M27", "bloques": [{"dia": 4, "inicio": 14, "fin": 14}]},
-      {"nrc": "10957", "seccion": "A4-M28", "bloques": [{"dia": 4, "inicio": 15, "fin": 15}]}
+      {"nrc": "10952", "seccion": "A4-M23", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10953", "seccion": "A4-M24", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10954", "seccion": "A4-M25", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]},
+      {"nrc": "10955", "seccion": "A4-M26", "bloques": [{"dia": 4, "inicio": 19, "fin": 19}]},
+      {"nrc": "10956", "seccion": "A4-M27", "bloques": [{"dia": 4, "inicio": 20, "fin": 20}]},
+      {"nrc": "10957", "seccion": "A4-M28", "bloques": [{"dia": 4, "inicio": 21, "fin": 21}]}
     ],
     "5": [
-      {"nrc": "10959", "seccion": "A5-M30", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10960", "seccion": "A5-M31", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10961", "seccion": "A5-M32", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]},
-      {"nrc": "10962", "seccion": "A5-M33", "bloques": [{"dia": 4, "inicio": 13, "fin": 13}]},
-      {"nrc": "10963", "seccion": "A5-M34", "bloques": [{"dia": 4, "inicio": 14, "fin": 14}]},
-      {"nrc": "10964", "seccion": "A5-M35", "bloques": [{"dia": 4, "inicio": 15, "fin": 15}]}
+      {"nrc": "10959", "seccion": "A5-M30", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10960", "seccion": "A5-M31", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10961", "seccion": "A5-M32", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]},
+      {"nrc": "10962", "seccion": "A5-M33", "bloques": [{"dia": 4, "inicio": 19, "fin": 19}]},
+      {"nrc": "10963", "seccion": "A5-M34", "bloques": [{"dia": 4, "inicio": 20, "fin": 20}]},
+      {"nrc": "10964", "seccion": "A5-M35", "bloques": [{"dia": 4, "inicio": 21, "fin": 21}]}
     ],
     "6": [
-      {"nrc": "10966", "seccion": "A6-M37", "bloques": [{"dia": 4, "inicio": 10, "fin": 10}]},
-      {"nrc": "10967", "seccion": "A6-M38", "bloques": [{"dia": 4, "inicio": 11, "fin": 11}]},
-      {"nrc": "10968", "seccion": "A6-M39", "bloques": [{"dia": 4, "inicio": 12, "fin": 12}]}
+      {"nrc": "10966", "seccion": "A6-M37", "bloques": [{"dia": 4, "inicio": 16, "fin": 16}]},
+      {"nrc": "10967", "seccion": "A6-M38", "bloques": [{"dia": 4, "inicio": 17, "fin": 17}]},
+      {"nrc": "10968", "seccion": "A6-M39", "bloques": [{"dia": 4, "inicio": 18, "fin": 18}]}
     ]
   }
 }
